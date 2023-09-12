@@ -10,3 +10,15 @@ h1 {
 	color: #FFFFFF;
 	font-family: arial;
 }
+
+a:hover {
+	color: #01d3ff;
+}
+
+a {
+	color: #a2efff;
+	font-family: arial;
+	font-size: 13px;
+	line-height: 14pt;
+	text-decoration: none
+}
