@@ -1,4 +1,9 @@
-import data from '/json/links.json' assert { type: 'json' };
+var data = [
+ {
+   "display": "404 Page Test",
+   "page": "404"
+ }
+]
 
 console.log(data);
 
