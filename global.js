@@ -58,20 +58,28 @@ if (!icon){
 if (!IsPopup){
     const FalseIdentities = [{
         icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABsklEQVQYV6WPMY9MYRSGnzO5K5mrsczINCujkBh3ihU1CX9BMSsKtqTQ6mzDr5BFQiLRSkRoFRu7icIQ3YoCESHL3DEbmfMqzjc3d1BxmvPlS97nPK9J4n8mm75Yvsz00zkzYTYPkwypAbJ4e2xkyBuw0LpvPzfaMpURrgMUAIhgBZGBGgGznIzpGMx4OW7xatLGbBYGJJTecoHHu2h+pZ/vgP8gQ4YQw3GbB1+OQgIgkS80kYvR7igBHLkzaImi+Q1kZKEJuJB71WDvnpy1M1dBsPb0BqNJiWpGqSWN6GRJ05ELubiwvEJ33xLdxSVWT5xHVRclw8ilCoY89STwt7fu0V08BMD687thKM1biKhgM3CtwmhScu3xdSRR7pZVuPInDicDknoA+p0eRecY/U4PgOGH12y83WT783aAHDSrIBlAquBcOXmJ00dOUZ+i02Nw/CwPh4+4+exWfMqQjExuYIDC4vdwfQ7v786FEWSoAYiiucPgwDuGb9bnQlVloCw/stJ+T5F/j4MyrHxyUKCw+NsIIK4pbbAAy8gkWwUu2uzSDKT6+jMIINkdU93xH+YXTrImgXmBBtYAAAAASUVORK5CYII=',
-        title:'Home' // google classroom
+        title:'Home', // google classroom
+        url:'https://classroom.google.com/h'
     }, {
         icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAbxJREFUeF7tWz1KA1EQni9GDGzQyhsI3sADZNOktPUIFtbGPpvewiPYWqYxB9AbCN4gjcouKMaMbGAhWEjehH283fdttbAz783vNzMLA9l4Rrd6+J0Xl6o4F+ipqhxtfm/qOyDvongB9GG/n9zNrvBR6YLqJZ1+DlWX96Jy3FRFt5IbsgC6F/Nx77GkXxtgrfzqZyai3a0OaTwRlujsjUojoAz7r7x4bb3n/zoNsjjoJycYZvn1SmXaeKcaFOhAxkgnxZOKnhn4G88CwTPSLH9rC9q7eqSsDhhMcnVlbBM9DcAIYAoQAwiCbUJ1V13MVWB+k7jeVSt9mhWm82kAaxlkBDAFiAEm0KmLiSDouwrU5Unf55rLoG9B67qPBrD2AXV5xPe5jABGAH+I2H6IcBbgLMBZwHfF+vc+zgK+ZwGCYOwgGBQA7CAMW2G2wmyFba3wDmkXFCsxgBhgxAAfjZC1vXXJMXMK0AAeOkFGgHHAYQo4WIAYYC2D0YOgQ5QFTWpOgaC1chCOBrBigIORgyZlBDACjMNQ0HHtIBxTIPqVmeiXpqJfm4t+cbIEzKhXZ6uKEfXydGWEGNfnfwHmvURGnfLKnwAAAABJRU5ErkJggg==',
-        title:'Report - Google Docs' // google docs
+        title:'Google Docs', // google docs
+        url:'https://docs.google.com/document/u/0/'
     }, {
         icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex28W0/C1Y1Zy05VFM75nUwiAZVGT/v5sgdcA3UurOPUrxvXOFhJD7fOmdn4LeNc5NbpkfWimv5mWZ8KXFKdfXqInOYBnc6gsPEjZ8mKssbQOtvEkMczYl0oK8z3un4lgppbYkhZS3Fp7bnD0Jxeba+lODmTFviFcxq29NeRHDUEQ1DnnqtNSjohIo3Nutx+keNz9gmf9zfQkB0ChYMkK9q2KcaLwMJFQGFV9Y4w5YIwZzyBBI2lRLcD9PVXN/SdFqlokInUi0iEiE9P+UUTuqurmufl/AKTzsFGmvUNUAAAAAElFTkSuQmCC',
-        title:'screenshot hotkey - Google Search' // google
+        title:'screenshot hotkey - Google Search', // google
+        url:'https://www.google.com/search?q=screenshot+hotkey/'
     }, {
         icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAYRJREFUeF7tmzFKxFAQhr8xjZJiBa+gR/AMsmph6xk8gfZewRtY2xgtVrHfGyh4gm1WSQTBdSRCZFGT5aVKXv5UgcwLmXl5//8lvDGWDn9g863gBOPIYQdntHy9x+dzgyc3rlLjwvZ5rXKx6iS/ZY8Fl8BWjxNd/ejGLFnjeGPMfRn8XYAyeVuQOSSr79D/CDM+Eme8fsid+YRR8c5z9DP/e96MWWpsW3HDmX9y3v95bZGBcWpFxtSd3RbDez/EYGp5xjwitQ+bFOPF8ms8bFRc0SqA3gAtAWmARDAuXQ/LRi4gF5ALyAVqXSA9iMMgiuznv88fhWwUQRVAb4CWQBhVdDRaGiARlAvULk7ZYNO3gDhAHCAO6Kizhz2WOEAcIA4QB9RVQCAkEGr4KSoSFAmKBMOQq6PRIkGRoEhQJCgSrKmA9gdof4D2B2h/QBy825JCJYISQYmgRFAi2FJAoximlpnBN00Nvm1u8I2Tg2+draR80M3TVRGibZ8vGySdx//a578AWkc3zCX39KYAAAAASUVORK5CYII=',
-        title:'Untitled presentation - Google Slides' // google slides
+        title:'Untitled presentation - Google Slides', // google slides
+        url:'https://docs.google.com/presentation/create'
     }]
 
     const FalseIdentityIndex = Math.floor(Math.random() * FalseIdentities.length)
     const FalseIdentity = FalseIdentities[FalseIdentityIndex]
+
+    function Panic(){
+        window.location.replace(FalseIdentity.url)
+    }
 
     if (window.location.href.includes('about:blank')){
         window.addEventListener('beforeunload', function(e){ // pop-up with a warning before unload, as page cannot be restored with back button!
