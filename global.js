@@ -17,12 +17,12 @@ const Pages = {
 
 var PopupEnabled = true
 
-function LoadPageNoTrace(html, unload, page){
+function LoadPageNoTrace(html, unload, page, nopopup){
     unload = (unload || unload == null)
 
     var features = ''
 
-    if (PopupEnabled){
+    if (PopupEnabled && !nopopup){
         features = 'popup=1,toolbar=0,location=0,width=854,height=480'
     }
 
@@ -33,7 +33,7 @@ function LoadPageNoTrace(html, unload, page){
 
     newwindow.document.getElementsByTagName("html")[0].innerHTML = html
 
-    if (PopupEnabled){
+    if (PopupEnabled && !nopopup){
         newwindow.document.head.setAttribute('ispopup', true)
     }
 
@@ -65,6 +65,9 @@ if (!IsPopup){
     }, {
         icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex28W0/C1Y1Zy05VFM75nUwiAZVGT/v5sgdcA3UurOPUrxvXOFhJD7fOmdn4LeNc5NbpkfWimv5mWZ8KXFKdfXqInOYBnc6gsPEjZ8mKssbQOtvEkMczYl0oK8z3un4lgppbYkhZS3Fp7bnD0Jxeba+lODmTFviFcxq29NeRHDUEQ1DnnqtNSjohIo3Nutx+keNz9gmf9zfQkB0ChYMkK9q2KcaLwMJFQGFV9Y4w5YIwZzyBBI2lRLcD9PVXN/SdFqlokInUi0iEiE9P+UUTuqurmufl/AKTzsFGmvUNUAAAAAElFTkSuQmCC',
         title:'screenshot hotkey - Google Search' // google
+    }, {
+        icon:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAYRJREFUeF7tmzFKxFAQhr8xjZJiBa+gR/AMsmph6xk8gfZewRtY2xgtVrHfGyh4gm1WSQTBdSRCZFGT5aVKXv5UgcwLmXl5//8lvDGWDn9g863gBOPIYQdntHy9x+dzgyc3rlLjwvZ5rXKx6iS/ZY8Fl8BWjxNd/ejGLFnjeGPMfRn8XYAyeVuQOSSr79D/CDM+Eme8fsid+YRR8c5z9DP/e96MWWpsW3HDmX9y3v95bZGBcWpFxtSd3RbDez/EYGp5xjwitQ+bFOPF8ms8bFRc0SqA3gAtAWmARDAuXQ/LRi4gF5ALyAVqXSA9iMMgiuznv88fhWwUQRVAb4CWQBhVdDRaGiARlAvULk7ZYNO3gDhAHCAO6Kizhz2WOEAcIA4QB9RVQCAkEGr4KSoSFAmKBMOQq6PRIkGRoEhQJCgSrKmA9gdof4D2B2h/QBy825JCJYISQYmgRFAi2FJAoximlpnBN00Nvm1u8I2Tg2+draR80M3TVRGibZ8vGySdx//a578AWkc3zCX39KYAAAAASUVORK5CYII=',
+        title:'Untitled presentation - Google Slides' // google slides
     }]
 
     const FalseIdentityIndex = Math.floor(Math.random() * FalseIdentities.length)
