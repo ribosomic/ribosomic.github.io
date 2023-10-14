@@ -4,7 +4,7 @@ const Pages = {
         title:'Minecraft 1.5.2',
         icon:'data:image/png;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAABvgAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAACAAIABoAAAAAMYXYxQ4EADAAAAAAUaXNwZQAAAAAAAADAAAAAwAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEgYIDhAAAAcZtZGF0EgAKChgd7+/YIEBA0IAyrQMRsAHHHHFAwbw1RRdgvYUDGC8T03oLZxKBQZL+YhM8OYbuAWt8a2BmZMe1UQ80GsWrOQkqJFK2y69g/XD8P2DJRM3SpCoWP4L7RIiswkewhVvckArNU1HIu9HOWJFbAgKEPvCDumtiIr7LQeT7B0Iy9CPNBUx0tUYlU5gukgo1aIHO1isgsGYEyVPkUywU5pMJr0PRna6DSY0ykfz+jmFvWImC033iWE4Vtz7/b6Fox50OgpxNuA6vqeDmry/W1082eilP+EUQRhS9E2lskpWZJj9F33yGuHmbSHuVjkxbdAuN+4mtyKSoQWAFhE8m8aew0LQXkaiGodLSGL0tj2t+a58tihQAF9ukMKZWpSYsH7A2K1prAbnzZ7ywxJFqiuzavTDukm/vbujJmejo11rniszibVeLmokMF01ImqOiiBr36+Zc1R6BU1FbU6E38Ui4D6dfu7/C6B6T826mZj2uMyFREu6yR9iQzWNANlkovOC+A/ShxAVtWfSgaJjqXJxzea6F9ClQj066gLiG+6XrHFXi9SWWIR4Gymwz0X3mHpo/8G//7rSBT1QrNBA=',
 
-        html:'<html><head></head><body style="margin: 0px; height: 100vh;"><iframe src="https://cerealistic.github.io/eaglercraft1.5.2/" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
+        html:'<html><head></head><body style="margin: 0px; height: 100vh;"><iframe src="https://radmanplays.github.io/mc-1.5.2/" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
     },
     
     cookieclicker:{
