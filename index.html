@@ -4,7 +4,7 @@
 		<script src="global.js"></script>
 		<style>
 			body{background-color: #202124;}
-			html,body,h1,input,select,a{font-family:Roboto,arial,sans-serif}
+			html,body,h1,input,select,a,p,pre{font-family:Roboto,arial,sans-serif}
 
 			a:visited{color:#c58af9}
 			a:hover{text-decoration:underline}
@@ -15,8 +15,10 @@
 		</style>
 	</head>
 	<body>
-		<p id="warning">Javascript may have been disabled by an admin :(</p>
-		<input type="button" id="togglepopup" onclick="Toggle(this);"></input>
+		<h1 id="warning">Javascript may have been disabled by an admin :(</h1>
+
+		<input type="button" id="togglepopup" text="Open in seperate window"></input>
+		<input type="button" id="panic" value="Panic (Voids url, cant refresh)" onclick="Panic(this);"></input>
 
 		<br><hr>
 
@@ -24,23 +26,33 @@
 			const Warning = document.getElementById("warning")
 
 			const TogglePopup = document.getElementById("togglepopup")
-			const TogglePopupText = 'Open in separate window'
+			const PanicButton = document.getElementById("panic")
 
 			function Toggle(button){
-				const Value = TogglePopup.value
+				const Value = button.value
+				const Text = button.getAttribute('text')
 				
-				if (Value == TogglePopupText + ": OFF" || Value == null || Value == ''){
+				if (Value == Text + ": OFF" || Value == null || Value == ''){
 					PopupEnabled = true
-					TogglePopup.value = TogglePopupText + ": ON"
-				} else if (Value == TogglePopupText + ": ON"){
+					TogglePopup.value = Text + ": ON"
+				} else if (Value == Text + ": ON"){
 					PopupEnabled = false
-					TogglePopup.value = TogglePopupText + ": OFF"
+					TogglePopup.value = Text + ": OFF"
 				}
 			}
 
-			Warning.remove()
+			function Panic(){
+				LoadPageNoTrace(document.documentElement.outerHTML, false, null, true)
+			}
 
+			TogglePopup.addEventListener("click", function(e){
+				Toggle(this)
+			});
+			
 			Toggle(TogglePopup)
+
+			PanicButton.style.visibility = "hidden"
+			Warning.remove()
 
 			for (var Index of Object.keys(Pages)) {
 				var link = document.createElement('a');
