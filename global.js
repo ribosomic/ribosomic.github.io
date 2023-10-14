@@ -1,19 +1,28 @@
-const IsPopup = (window.opener && window.opener !== window)
+const IsPopup = document.head.getAttribute('ispopup') || false
 const Pages = {
     minecraft:{
         title:'Minecraft 1.5.2',
         icon:'data:image/png;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAABvgAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAACAAIABoAAAAAMYXYxQ4EADAAAAAAUaXNwZQAAAAAAAADAAAAAwAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEgYIDhAAAAcZtZGF0EgAKChgd7+/YIEBA0IAyrQMRsAHHHHFAwbw1RRdgvYUDGC8T03oLZxKBQZL+YhM8OYbuAWt8a2BmZMe1UQ80GsWrOQkqJFK2y69g/XD8P2DJRM3SpCoWP4L7RIiswkewhVvckArNU1HIu9HOWJFbAgKEPvCDumtiIr7LQeT7B0Iy9CPNBUx0tUYlU5gukgo1aIHO1isgsGYEyVPkUywU5pMJr0PRna6DSY0ykfz+jmFvWImC033iWE4Vtz7/b6Fox50OgpxNuA6vqeDmry/W1082eilP+EUQRhS9E2lskpWZJj9F33yGuHmbSHuVjkxbdAuN+4mtyKSoQWAFhE8m8aew0LQXkaiGodLSGL0tj2t+a58tihQAF9ukMKZWpSYsH7A2K1prAbnzZ7ywxJFqiuzavTDukm/vbujJmejo11rniszibVeLmokMF01ImqOiiBr36+Zc1R6BU1FbU6E38Ui4D6dfu7/C6B6T826mZj2uMyFREu6yR9iQzWNANlkovOC+A/ShxAVtWfSgaJjqXJxzea6F9ClQj066gLiG+6XrHFXi9SWWIR4Gymwz0X3mHpo/8G//7rSBT1QrNBA=',
 
-        html:'<html><head></head><body style="margin: 0px; height: 100vh;"><iframe src="https://cerealistic.github.io/eaglercraft1.5.2/" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe><script>window.addEventListener("load", function() {setTimeout(function(){window.eaglercraftOpts.mainMenu.splashes = [\'test!\']}, 6001);});</script></body></html>'
+        html:'<html><head></head><body style="margin: 0px; height: 100vh;"><iframe src="https://cerealistic.github.io/eaglercraft1.5.2/" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
+    },
+    
+    cookieclicker:{
+        title:'Cookie Clicker',
+        icon:'data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD///8AS3CVAB8jPgA4PV4AFyxJACJAZQAuTG8AGzdaADVcgwCfvs8AKC1SAA0WJwBhlLYAEyI8AEt+pAA2ZJMAAAAAAAAAAAAAAAvUu7AAAAAL1lV4NLAAALuE/63mSwAARv2v1e9kAAtW7s7o39PQC3icnJnJttAEWMHunu73sA2M6jqT/OFAAnnKE6nDT9ALX+41n9OlsABH9+HuGGMAALV40/WI2wAACz2miG2wAAAAAk1LsAAAAAAAAAAAAAD//wAA+B8AAOAHAADAAwAAwAMAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAMADAADAAwAA4AcAAPgfAAD//wAA',
+
+        html:'<html><head></head><body style="margin: 0px; height: 100vh;"><iframe src="https://stennen.github.io/games/cookies/" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
     }
 }
+
+var PopupEnabled = true
 
 function LoadPageNoTrace(html, unload, page){
     unload = (unload || unload == null)
 
     var features = ''
 
-    if (!unload){
+    if (PopupEnabled){
         features = 'popup=1,toolbar=0,location=0,width=854,height=480'
     }
 
@@ -23,6 +32,10 @@ function LoadPageNoTrace(html, unload, page){
     script.src = 'global.js'
 
     newwindow.document.getElementsByTagName("html")[0].innerHTML = html
+
+    if (PopupEnabled){
+        newwindow.document.head.setAttribute('ispopup', true)
+    }
 
     newwindow.document.head.setAttribute('page', page)
     newwindow.document.head.appendChild(script)
@@ -57,10 +70,13 @@ if (!IsPopup){
     const FalseIdentityIndex = Math.floor(Math.random() * FalseIdentities.length)
     const FalseIdentity = FalseIdentities[FalseIdentityIndex]
 
-    window.addEventListener('beforeunload', function(e){ // pop-up with a warning before unload, as page cannot be restored with back button!
-        e.preventDefault();
-        e.returnValue = '';
-    });
+    if (window.location.href.includes('about:blank')){
+        window.addEventListener('beforeunload', function(e){ // pop-up with a warning before unload, as page cannot be restored with back button!
+            const msg = 'Are you sure to leave the page?'
+            e.returnValue = msg
+            return msg
+        });
+    }
 
     icon.href = FalseIdentity.icon
     document.title = FalseIdentity.title
