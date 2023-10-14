@@ -10,20 +10,51 @@
 			a:hover{text-decoration:underline}
 
 			a{color:#8AB4F8;text-decoration:none}
+
+			hr{border-color:#3C4043}
 		</style>
 	</head>
 	<body>
 		<p id="warning">Javascript may have been disabled by an admin :(</p>
+		<input type="button" id="togglepopup" onclick="Toggle(this);"></input>
+
+		<br><hr>
+
 		<script>
-			document.getElementById('warning').remove()
+			const Warning = document.getElementById("warning")
+
+			const TogglePopup = document.getElementById("togglepopup")
+			const TogglePopupText = 'Open in new window'
+
+			function Toggle(button){
+				const Value = TogglePopup.value
+				
+				if (Value == TogglePopupText + ": OFF" || Value == null || Value == ''){
+					PopupEnabled = true
+					TogglePopup.value = TogglePopupText + ": ON"
+				} else if (Value == TogglePopupText + ": ON"){
+					PopupEnabled = false
+					TogglePopup.value = TogglePopupText + ": OFF"
+				}
+			}
+
+			Warning.remove()
+
+			Toggle(TogglePopup)
 
 			for (var Index of Object.keys(Pages)) {
-				var link = document.createElement("a");
+				var link = document.createElement('a');
+				var linebreak = document.createElement('br');
 
 				link.innerHTML = Pages[Index].title;
 				link.href = 'javascript:void(0);'
 
-				link.onclick = function(){LoadPageNoTrace(LoadPage(Index).html, false, Index)}
+				link.setAttribute('index', Index)
+				link.addEventListener("click", function(e) {
+					LoadPageNoTrace(LoadPage(this.getAttribute('index')).html, false, this.getAttribute('index'))
+				});
+
+				link.appendChild(linebreak);
 
 				document.body.appendChild(link);
 			}
