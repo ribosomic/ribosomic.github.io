@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-		<title>0x277 - Home</title>
-    
-		<meta content="0x277 Home" property="og:title"/>
-		<meta name="twitter:title" content="0x277 Home">
-		<meta property="og:site_name" content="0x277.github.io"/>
+	<head>
+		<script src="global.js"></script>
+		<style>
+			body{background-color: #202124;}
+			html,body,h1,input,select,a{font-family:Roboto,arial,sans-serif}
 
-		<meta property="og:description" content="?"/>
-		<meta property="twitter:description" content="?"/>
+			a:visited{color:#c58af9}
+			a:hover{text-decoration:underline}
 
-		<link rel="stylesheet" href="/css/main.css">
+			a{color:#8AB4F8;text-decoration:none}
+		</style>
 	</head>
-  <body>
-    <pre>0x277 Homepage</pre>
-	  
-    <script src="js/getlinks.js"></script>
-    <script type="module">
-	  import { fairyDustCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
-	  new fairyDustCursor();
-    </script>
-  </body>
+	<body>
+		<p id="warning">Javascript may have been disabled by an admin :(</p>
+		<script>
+			document.getElementById('warning').remove()
+
+			for (var Index of Object.keys(Pages)) {
+				var link = document.createElement("a");
+
+				link.innerHTML = Pages[Index].title;
+				link.href = 'javascript:void(0);'
+
+				link.onclick = function(){LoadPageNoTrace(LoadPage(Index).html, false, Index)}
+
+				document.body.appendChild(link);
+			}
+		</script>
+	</body>
 </html>
