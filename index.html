@@ -18,7 +18,7 @@
 		<h1 id="warning">Javascript may have been disabled by an admin :(</h1>
 
 		<input type="button" id="togglepopup" text="Open in seperate window"></input>
-		<input type="button" id="panic" value="Panic (Voids url, cant refresh)" onclick="Panic(this);"></input>
+		<input type="button" id="panic" value="Panic" onclick="Panic(this);"></input>
 
 		<br><hr>
 
@@ -41,17 +41,18 @@
 				}
 			}
 
-			function Panic(){
-				LoadPageNoTrace(document.documentElement.outerHTML, false, null, true)
-			}
-
 			TogglePopup.addEventListener("click", function(e){
 				Toggle(this)
+			});
+
+			document.body.addEventListener("keydown", function(e){
+				if (e.key != 'F4'){return}
+
+				Panic(PanicButton)
 			});
 			
 			Toggle(TogglePopup)
 
-			PanicButton.style.visibility = "hidden"
 			Warning.remove()
 
 			for (var Index of Object.keys(Pages)) {
