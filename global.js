@@ -1,7 +1,5 @@
 function IFramePage(url, popup){
-    // if (!popup){return '<html><head><link rel="stylesheet" href="style.css"></head><body style="margin: 0px; height: 100vh;"><iframe src="' + url + '" style="border: none; width: 100%; height: 97%; margin: 0px;"></iframe><input type="button" id="panic" value="Panic (F4 Hotkey)" onclick="Panic(this);"></input></body></html>'}
-
-    return '<html><head></head><body style="margin: 0px; height: 100vh;"><iframe id="player" src="' + url + '" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
+    return '<html><head></head><body style="margin: 0px; height: 100%;"><iframe id="player" src="' + url + '" style="border: none; width: 100%; height: 95%; margin: 0px;"></iframe></body></html>'
 }
 
 const Icons = {
@@ -20,15 +18,15 @@ const Pages = {
         note:'',
 
         icon:Icons.grass,
-        html:IFramePage('https://ribosomic.github.io/cavegame.html')
+        url:'https://ribosomic.github.io/cavegame.html'
     },
 
     minecraft1dot8:{
-        title:'Minecraft (Resent Client) 1.8',
-        note:'(Can\'t run singleplayer!)',
+        title:'Minecraft 1.8.8',
+        note:'(Resent client, can\'t run singleplayer!)',
 
         icon:Icons.resent,
-        html:IFramePage('https://resent.kones.tech/')
+        url:'https://resent.kones.tech/'
     },
     
     cookieclicker:{
@@ -36,8 +34,12 @@ const Pages = {
         note:'',
 
         icon:Icons.cookie,
-        html:IFramePage('https://stennen.github.io/games/cookies/')
+        url:'https://stennen.github.io/games/cookies/'
     }
+}
+
+for (var Index of Object.keys(Pages)) { // make all url pages into iframe html pages
+    if (Pages[Index].url && !Pages[Index].html){Pages[Index].html = IFramePage(Pages[Index].url)}
 }
 
 var PopupEnabled = true
