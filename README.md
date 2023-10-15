@@ -25,4 +25,4 @@ if this site is blocked at ur school for matching a keyword, feel free to make a
 * Cookie Clicker, via [Stennen](https://github.com/stennen/stennen.github.io)
 
 ### Credits
-* eaglercraft was made by [lax1dude](https://github.com/lax1dude) with assets and code from [Mojang](https://www.minecraft.net/en-us)
+* eaglercraft was made by [lax1dude](https://github.com/lax1dude) with assets and code from [Mojang](https://www.mojang.com)
