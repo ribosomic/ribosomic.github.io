@@ -21,8 +21,8 @@ if this site is blocked at ur school for matching a keyword, feel free to make a
 * not skidded: i actually know how to program 🤯
 
 ## Apps/Games
-* Minecraft via [Eaglercraft \(by lax1dude\)](https://github.com/lax1dude)
-* Cookie Clicker via [Stennen](https://github.com/stennen/stennen.github.io)
+* Minecraft, via [Eaglercraft \(by lax1dude\)](https://github.com/lax1dude)
+* Cookie Clicker, via [Stennen](https://github.com/stennen/stennen.github.io)
 
 ### Credits
 * eaglercraft was made by [lax1dude](https://github.com/lax1dude) with assets and code from [Mojang](https://www.minecraft.net/en-us)
