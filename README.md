@@ -12,7 +12,7 @@ if this site is blocked at ur school for matching a keyword, feel free to make a
 
 ## Planned Features
 * automatic proxy use to bypass internet restrictions
-* adding more _epic_ games 😎
+* adding more games (although still focusing on quality over quantity)
 
 ## Features
 * false identities: pretends to be a randomized website that you should be on at school
