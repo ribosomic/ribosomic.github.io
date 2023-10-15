@@ -95,7 +95,7 @@
 					linkdownload.setAttribute('index', Index)
 
 					link.addEventListener("click", function(e) {
-						LoadPageNoTrace(LoadPage(this.getAttribute('index')).html, false, this.getAttribute('index'))
+						LoadPageNoTrace(LoadPageHTML(LoadPage(this.getAttribute('index'))), false, this.getAttribute('index'))
 					});
 
 					linkdownload.addEventListener("click", function(e) {
