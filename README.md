@@ -13,7 +13,9 @@ i'ts better than like every other website for games (not including the ability t
 * Minecraft via [Eaglercraft \(by lax1dude\)](https://github.com/lax1dude)
 * Cookie Clicker via [Stennen](https://github.com/stennen/stennen.github.io)
 
-do not redistribute my work without crediting me first!
-eaglercraft was made by lax1dude with assets and code from mojang
+> [!IMPORTANT]
+> do not redistribute my work without crediting me first!
+> (apps are NOT counted as my work, although you still need to follow their rules!)
 
-(apps are NOT counted as my work, although you still need to follow their rules!)
+### Credits
+* eaglercraft was made by lax1dude with assets and code from mojang
