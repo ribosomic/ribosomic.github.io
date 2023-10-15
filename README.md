@@ -20,9 +20,5 @@ if this site is blocked at ur school for matching a keyword, feel free to make a
 * popout windows: lets you pop out apps as a new window (wont disguise popped out windows!)
 * not skidded: i actually know how to program 🤯
 
-## Apps/Games
-* Minecraft, via [Eaglercraft \(by lax1dude\)](https://github.com/lax1dude)
-* Cookie Clicker, via [Stennen](https://github.com/stennen/stennen.github.io)
-
 ### Credits
 * eaglercraft was made by [lax1dude](https://github.com/lax1dude) with assets and code from [Mojang](https://www.mojang.com)
