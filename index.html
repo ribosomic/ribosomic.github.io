@@ -8,19 +8,21 @@
 			html,body,h1,input,select,a,p,pre{font-family:Roboto,arial,sans-serif}
 			h1,p,pre{color:#E8EAED}
 
-			a:visited{color:#c58af9}
 			a:hover{text-decoration:underline}
-
 			a{color:#8AB4F8;text-decoration:none}
 
 			hr{border-color:#3C4043}
+
+			.special{color:#c58af9}
 		</style>
 	</head>
 	<body>
-		<h1 id="warning">Javascript may have been disabled by an admin :(</h1>
+		<div id="topBar"><p><b class="special">Ribosomic</b>, now with 100% more games!</p></div><hr>
 
-		<input type="button" id="togglepopup" text="Open in seperate window"></input>
-		<input type="button" id="panic" value="Panic (F4 Hotkey)" onclick="Panic(this);"></input>
+		<h1 id="warning" class="special">Javascript may have been disabled by an admin :(</h1>
+
+		<input type="button" id="togglepopup" value="?" text="Open in popout window"></input>
+		<input type="button" id="panic" value="Panic - F4" onclick="Panic(this);"></input>
 
 		<br><hr>
 
@@ -30,16 +32,19 @@
 			const TogglePopup = document.getElementById("togglepopup")
 			const PanicButton = document.getElementById("panic")
 
+			const ON = '✔'
+			const OFF = '✖'
+
 			function Toggle(button){
 				const Value = button.value
 				const Text = button.getAttribute('text')
 				
-				if (Value == Text + ": OFF" || Value == null || Value == ''){
+				if (Value == Text + ": " + OFF || Value == null || Value == '?' || Value == ''){
 					PopupEnabled = true
-					TogglePopup.value = Text + ": ON"
-				} else if (Value == Text + ": ON"){
+					TogglePopup.value = Text + ": " + ON
+				} else if (Value == Text + ": " + ON){
 					PopupEnabled = false
-					TogglePopup.value = Text + ": OFF"
+					TogglePopup.value = Text + ": " + OFF
 				}
 			}
 
