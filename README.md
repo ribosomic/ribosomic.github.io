@@ -4,8 +4,9 @@ a game site i made in a couple days, if this is unblocked at ur school go crazy 
 i'ts better than like every other website for games (not including the ability to be unblocked, you'd have to use a proxy if mine is blocked)
 
 > [!IMPORTANT]
-> do not redistribute my work without crediting me first!
-> (apps are NOT counted as my work, although you still need to follow their rules!)
+> do not redistribute my work without crediting me!
+> credit needs to be obviously crediting me for making the website, and not just a minor mention in a contribution list!
+> apps are NOT counted as my work (although you still need to follow their rules!)
 
 ## Features
 * false identities: pretends to be a randomized website that you should be on at school
