@@ -1,7 +1,7 @@
 # Ribosomic
 
 a game site i made in a couple days, if this is unblocked at ur school go crazy i guess :trollface:
-i'ts better than like every other website for games (not including the ability to be unblocked, you'd have to use a proxy if mine is blocked)
+it's better than _most_ game websites (_not including the ability to be unblocked_, you'd have to use a third-party proxy if ribosomic is blocked)
 
 > [!IMPORTANT]
 > do not redistribute my work without crediting me!
@@ -9,6 +9,7 @@ i'ts better than like every other website for games (not including the ability t
 > apps are NOT counted as my work (although you still need to follow their rules!)
 
 automatic proxy use is a feature that may be added if enough people ask for it!
+if this site is blocked at ur school for matching a keyword, feel free to make an issue with the block screen (hopefully taken via your phone? i'd hope you dont just expose the repository on the device you're using 👁️)
 
 ## Features
 * false identities: pretends to be a randomized website that you should be on at school
