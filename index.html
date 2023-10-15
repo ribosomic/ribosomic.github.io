@@ -1,3 +1,12 @@
+<!--
+
+	Ribosomic | 2023
+	credit: https://github.com/0xFE0F
+
+	Do not redistribute!
+
+-->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -65,56 +74,65 @@
 
 			Warning.remove()
 
-			for (var Index of Object.keys(Pages)) {
-				var container = document.createElement('div');
+			var LastWasGrouped = true // genuinely so stupid, but i refuse to figure out how to do this properly!
+			function LoopThrough(Pages){
+				for (var Index of Object.keys(Pages)) {
+					if (!Pages[Index].title){if(!LastWasGrouped){Main.appendChild(document.createElement('br'))}; LoopThrough(Pages[Index]); Main.appendChild(document.createElement('br')); LastWasGrouped = false; continue}
 
-				var link = document.createElement('a');
-				var linkdownload = CreateElementFromHTML('<a class="special" style="font-size: 12px" href="javascript:void(0)"> [Offline Download]</a>');
+					LastWasGrouped = false
 
-				var linebreak = document.createElement('br');
+					var container = document.createElement('div');
 
-				link.innerHTML = Pages[Index].title + ' ' + (Pages[Index].note || '');
-				link.href = 'javascript:void(0);'
+					var link = document.createElement('a');
+					var linkdownload = CreateElementFromHTML('<a class="special" style="font-size: 12px" href="javascript:void(0)"> [Offline Download]</a>');
 
-				link.setAttribute('index', Index)
-				linkdownload.setAttribute('index', Index)
+					var linebreak = document.createElement('br');
 
-				link.addEventListener("click", function(e) {
-					LoadPageNoTrace(LoadPage(this.getAttribute('index')).html, false, this.getAttribute('index'))
-				});
+					link.innerHTML = Pages[Index].title + ' ' + (Pages[Index].note || '');
+					link.href = 'javascript:void(0);'
 
-				linkdownload.addEventListener("click", function(e) {
-					var Index = this.getAttribute('index')
-					if (Pages[Index].url != null){
-						fetch(Pages[Index].url).then(function(response){return response.text();}).then(function(html){
-							// console.log(html)
+					link.setAttribute('index', Index)
+					linkdownload.setAttribute('index', Index)
 
-							var headpattern = /<head>/;
-							var endheadpattern = /<\/head>/;
+					link.addEventListener("click", function(e) {
+						LoadPageNoTrace(LoadPage(this.getAttribute('index')).html, false, this.getAttribute('index'))
+					});
 
-							html = html.replace(headpattern, '<head><base href="' + Pages[Index].url + '" target="_blank"></base>')
-							html = html.replace(endheadpattern, '<link rel="icon" href="' + Pages[Index].icon + '"><title>' + Pages[Index].title + '</title></head>')
+					linkdownload.addEventListener("click", function(e) {
+						var Index = this.getAttribute('index')
+						if (Pages[Index].url != null){
+							fetch(Pages[Index].url).then(function(response){return response.text();}).then(function(html){
+								// console.log(html)
 
-							var element = document.createElement('a');
+								var headpattern = /<head>/;
+								var endheadpattern = /<\/head>/;
 
-                			element.setAttribute('href', 'data:text/html;charset=UTF-8,' + encodeURIComponent(html));
-                			element.setAttribute('download', encodeURIComponent(Pages[Index].title) + '.html');
+								html = html.replace(headpattern, '<head><base href="' + Pages[Index].url + '" target="_blank"></base>')
+								html = html.replace(endheadpattern, '<link rel="icon" href="' + Pages[Index].icon + '"><title>' + Pages[Index].title + '</title></head>')
+
+								var element = document.createElement('a');
+
+                				element.setAttribute('href', 'data:text/html;charset=UTF-8,' + encodeURIComponent(html));
+                				element.setAttribute('download', encodeURIComponent(Pages[Index].title) + '.html');
              
-							document.body.appendChild(element);
-							element.click();
-							document.body.removeChild(element);
-						})}
-					else {
-						location.href = 'data:text/html;charset=UTF-8,' + encodeURIComponent(Pages[Index].html)
-					}
-				});
+								document.body.appendChild(element);
+								element.click();
+								document.body.removeChild(element);
+							})}
+						else {
+							location.href = 'data:text/html;charset=UTF-8,' + encodeURIComponent(Pages[Index].html)
+						}
+					});
 
-				container.appendChild(link);
-				container.appendChild(linkdownload)
-				container.appendChild(linebreak);
+					container.appendChild(link);
+					container.appendChild(linkdownload)
+					container.appendChild(linebreak);
 
-				Main.appendChild(container);
+					Main.appendChild(container);
+				}
 			}
+
+			LoopThrough(Pages)
 		</script>
 	</body>
 </html>
