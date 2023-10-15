@@ -7,7 +7,7 @@
 
 */
 
-function IFramePage(url, popup){
+function IFramePage(url){
     return '<html><head></head><body style="margin: 0px; height: 100%;"><iframe id="player" src="' + url + '" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
 }
 
@@ -92,10 +92,6 @@ const Pages = {
     },
 }
 
-for (var Index of Object.keys(Pages)) { // make all url pages into iframe html pages
-    if (Pages[Index].url && !Pages[Index].html){Pages[Index].html = IFramePage(Pages[Index].url)}
-}
-
 var PopupEnabled = true
 
 function LoadPageNoTrace(html, unload, page, nopopup){
@@ -125,7 +121,17 @@ function LoadPageNoTrace(html, unload, page, nopopup){
 }
 
 function LoadPage(page){
-    return Pages[page]
+    var Page = Pages[page]
+    for (var Index of Object.keys(Pages)) {
+        if (typeof(Pages[Index]) != 'object'){continue;}
+        for (var Index2 of Object.keys(Pages[Index])) {if (Index2 == page){Page = Pages[Index][Index2]; break}}
+    }
+
+    return Page
+}
+
+function LoadPageHTML(Page){
+    return Page.url && IFramePage(Page.url) || Page.html
 }
 
 function CreateElementFromHTML(htmlString){ // https://stackoverflow.com/a/494348
@@ -185,8 +191,8 @@ if (!IsPopup){
     icon.href = FalseIdentity.icon
     document.title = FalseIdentity.title
 } else {
-    const Icon = Pages[Page].icon
-    const Title = Pages[Page].title
+    const Icon = LoadPage(Page).icon
+    const Title = LoadPage(Page).title
 
     icon.href = Icon
     document.title = Title
