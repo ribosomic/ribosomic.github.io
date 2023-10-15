@@ -3,7 +3,7 @@
 	<head>
 		<script src="global.js"></script>
 		<style>
-			body{background-color: #202124;}
+			body{background-color: #202124; margin: 0}
 
 			html,body,h1,input,select,a,p,pre{font-family:Roboto,arial,sans-serif}
 			h1,p,pre{color:#E8EAED}
@@ -13,20 +13,23 @@
 
 			hr{border-color:#3C4043}
 
+			#main{margin: 8px}
+
 			.special{color:#c58af9}
 		</style>
 	</head>
 	<body>
-		<div id="topBar"><p><b class="special">Ribosomic</b>, now with 100% more games!</p></div><hr>
+		<div id="main">
+			<h1 id="warning" class="special">Javascript may have been disabled by an admin :(</h1>
 
-		<h1 id="warning" class="special">Javascript may have been disabled by an admin :(</h1>
+			<input type="button" id="togglepopup" value="?" text="Open in popout window"></input>
+			<input type="button" id="panic" value="Panic - F4" onclick="Panic(this);"></input>
 
-		<input type="button" id="togglepopup" value="?" text="Open in popout window"></input>
-		<input type="button" id="panic" value="Panic - F4" onclick="Panic(this);"></input>
-
-		<br><hr>
+			<br><hr>
+		</div>
 
 		<script>
+			const Main = document.getElementById("main")
 			const Warning = document.getElementById("warning")
 
 			const TogglePopup = document.getElementById("togglepopup")
@@ -63,20 +66,54 @@
 			Warning.remove()
 
 			for (var Index of Object.keys(Pages)) {
+				var container = document.createElement('div');
+
 				var link = document.createElement('a');
+				var linkdownload = CreateElementFromHTML('<a class="special" style="font-size: 12px" href="javascript:void(0)"> [Offline Download]</a>');
+
 				var linebreak = document.createElement('br');
 
 				link.innerHTML = Pages[Index].title + ' ' + (Pages[Index].note || '');
 				link.href = 'javascript:void(0);'
 
 				link.setAttribute('index', Index)
+				linkdownload.setAttribute('index', Index)
+
 				link.addEventListener("click", function(e) {
 					LoadPageNoTrace(LoadPage(this.getAttribute('index')).html, false, this.getAttribute('index'))
 				});
 
-				link.appendChild(linebreak);
+				linkdownload.addEventListener("click", function(e) {
+					var Index = this.getAttribute('index')
+					if (Pages[Index].url != null){
+						fetch(Pages[Index].url).then(function(response){return response.text();}).then(function(html){
+							// console.log(html)
 
-				document.body.appendChild(link);
+							var headpattern = /<head>/;
+							var endheadpattern = /<\/head>/;
+
+							html = html.replace(headpattern, '<head><base href="' + Pages[Index].url + '" target="_blank"></base>')
+							html = html.replace(endheadpattern, '<link rel="icon" href="' + Pages[Index].icon + '"><title>' + Pages[Index].title + '</title></head>')
+
+							var element = document.createElement('a');
+
+                			element.setAttribute('href', 'data:text/html;charset=UTF-8,' + encodeURIComponent(html));
+                			element.setAttribute('download', encodeURIComponent(Pages[Index].title) + '.html');
+             
+							document.body.appendChild(element);
+							element.click();
+							document.body.removeChild(element);
+						})}
+					else {
+						location.href = 'data:text/html;charset=UTF-8,' + encodeURIComponent(Pages[Index].html)
+					}
+				});
+
+				container.appendChild(link);
+				container.appendChild(linkdownload)
+				container.appendChild(linebreak);
+
+				Main.appendChild(container);
 			}
 		</script>
 	</body>
