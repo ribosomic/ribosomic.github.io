@@ -8,6 +8,8 @@ i'ts better than like every other website for games (not including the ability t
 > credit needs to be obviously crediting me for making the website, and not just a minor mention in a contribution list!
 > apps are NOT counted as my work (although you still need to follow their rules!)
 
+automatic proxy use is a feature that may be added if enough people ask for it!
+
 ## Features
 * false identities: pretends to be a randomized website that you should be on at school
 * url "spoofer": uses a trick to make apps show up as websites with no url (history will still show the home page!)
