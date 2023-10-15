@@ -4,8 +4,7 @@ a game site i made in a couple days, if this is unblocked at ur school go crazy 
 it's better than _most_ game websites (_not including the ability to be unblocked_, you'd have to use a third-party proxy if ribosomic is blocked)
 
 > [!IMPORTANT]
-> do not redistribute my work without crediting me!
-> credit needs to be obviously crediting me for making the website, and not just a minor mention in a contribution list!
+> do not redistribute my work without permission!
 > apps are NOT counted as my work (although you still need to follow their rules!)
 
 if this site is blocked at ur school for matching a keyword, feel free to make an issue with the block screen (hopefully taken via your phone? i'd hope you dont just expose the repository on the device you're using 👁️)
