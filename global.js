@@ -17,22 +17,25 @@ const Page = document.head.getAttribute('page')
 const Pages = {
     minecraft1dot5:{
         title:'Minecraft 1.5.2',
-        icon:Icons.grass,
+        note:'',
 
+        icon:Icons.grass,
         html:IFramePage('https://ribosomic.github.io/cavegame.html')
     },
 
     minecraft1dot8:{
         title:'Minecraft (Resent Client) 1.8',
-        icon:Icons.resent,
+        note:'(Can\'t run singleplayer!)',
 
+        icon:Icons.resent,
         html:IFramePage('https://resent.kones.tech/')
     },
     
     cookieclicker:{
         title:'Cookie Clicker',
-        icon:Icons.cookie,
+        note:'',
 
+        icon:Icons.cookie,
         html:IFramePage('https://stennen.github.io/games/cookies/')
     }
 }
