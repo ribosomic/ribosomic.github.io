@@ -8,7 +8,7 @@
 */
 
 function IFramePage(url){
-    return '<html><head></head><body style="margin: 0px; height: 100%;"><iframe id="player" sandbox="allow-orientation-lock allow-pointer-lock allow-forms allow-scripts" src="' + url + '" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
+    return '<html><head></head><body style="margin: 0px; height: 100%;"><iframe id="player" src="' + url + '" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe></body></html>'
 }
 
 var PopupEnabled = true
