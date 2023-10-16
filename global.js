@@ -32,7 +32,7 @@ const Pages = {
             note:'',
 
             icon:Icons.grass,
-            url:'https://ribosomic.github.io/cavegame.html'
+            url:'https://ribosomic.github.io/apps/cavegame.html'
         },
 
         minecraft1dot8:{
