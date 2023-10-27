@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body style="background-color: #202124; margin: 0;">
+    
+<div class="applet_div">
+    <script type="text/javascript" charset="utf-8" src="https://www.greenfoot.org/javascript_attachments/0018/9384/scenario31337.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://www.greenfoot.org/javascript/jszip.min.js"></script>
+    <script type="text/javascript" defer="yes">
+      function pre_main() {
+          storage_params = [];
+          storage_params["storage.standalone"] = true;
+          storage_params["storage.passcode"] = "0000000000000000";
+          storage_params["storage.scenarioId"] = 31337;
+          storage_params["storage.userId"] = -1;
+          storage_params["storage.userName"] = "";
+      
+          var appletFile="https://ribosomic.github.io/apps/resources/pvzapplet.jar";
+          var appletEnableInterval=null
+          
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", appletFile);
+          xhr.responseType = "arraybuffer";
+          xhr.onload = function() {
+              JSZip.loadAsync(xhr.response).then(function (zip) {
+                  window.zip = zip;
+                  main();
+                  // Wait half a second for initialisation to complete before starting:
+
+                  appletEnableInterval=setInterval(function(){
+                    runButton = document.getElementById("playButton");
+                    
+                    if (runButton.textContent != "Pause"){runButton.click();}
+                  }, 200);
+              });
+          };
+          
+          xhr.onerror = function() {
+              // ??
+              alert("Failed to load applet.");
+          };
+          
+          xhr.send();
+      }
+      pre_main();
+    </script>
+    <div style="display: inline-block;">
+      <div>
+        <div style="width: 100%;">
+          <!-- enclosing div for Greenfoot.ask() panel: -->
+          <div style="display: inline-block; touch-action: pinch-zoom; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+             <canvas id="scenarioCanvas" width="912" height="638">
+                Your browser does not support the canvas tag.
+             </canvas>
+          </div>
+        </div>
+      </div>
+    
+      <!-- controls are present but invisible in fullscreen/embedded mode:-->
+      <div style="width: 0px; height: 0px; visibility: hidden;">
+        <button disabled="true" id="playButton" style="width: 0px; height: 0px;">Run</button>
+        <button disabled="true" id="resetButton" style="width: 0px; height: 0px;">Reset</button>
+        <input type="range" id="speedSlider" min=0 max=99 disabled="true" style="width: 0px; height: 0px; vertical-align: middle;"></input>
+      </div>
+    </div>
+</div>
+
+  </body>
+</html>
