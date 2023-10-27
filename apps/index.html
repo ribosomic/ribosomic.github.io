@@ -29,10 +29,14 @@
 	</head>
 	<body>
 		<div id="main">
+			<h1 style="display: inline"><img src="resources/mascot/48px.png" alt="1933 germany" width="48" height="48">Ribosomic</h1>
+			<hr>
+
 			<h1 id="warning" class="special">Javascript may have been disabled by an admin :(</h1>
 
 			<input type="button" id="togglepopup" value="?" text="Open in popout window"></input>
 			<input type="button" id="panic" value="Panic - F4" onclick="Panic(this);"></input>
+			<input type="button" id="pin" value="?" text="Pin Mode"></input>
 
 			<br><hr>
 		</div>
@@ -43,24 +47,43 @@
 
 			const TogglePopup = document.getElementById("togglepopup")
 			const PanicButton = document.getElementById("panic")
-
+			const PinButton = document.getElementById("pin")
+			
 			const ON = '✔'
 			const OFF = '✖'
 
-			function Toggle(button){
+			PinButton.value = PinButton.getAttribute('text') + ': ' + OFF
+
+			function Toggle(button, toggled){
 				const Value = button.value
 				const Text = button.getAttribute('text')
+
+				toggled = toggled
 				
-				if (Value == Text + ": " + OFF || Value == null || Value == '?' || Value == ''){
-					PopupEnabled = true
-					TogglePopup.value = Text + ": " + ON
-				} else if (Value == Text + ": " + ON){
-					PopupEnabled = false
-					TogglePopup.value = Text + ": " + OFF
+				if (toggled == null){toggled = (Value == Text + ": " + OFF || Value == null || Value == '?' || Value == '') || false}
+
+				console.log(button, toggled)
+				
+				if (toggled){
+					if (button == TogglePopup){PopupEnabled = true}
+					if (button == PinButton){PinEnabled = true}
+
+					button.value = Text + ": " + ON
+				} else if (!toggled){
+					if (button == TogglePopup){PopupEnabled = false}
+					if (button == PinButton){PinEnabled = false}
+					
+					button.value = Text + ": " + OFF
 				}
+
+				if (button == PinButton){PinMode()}
 			}
 
 			TogglePopup.addEventListener("click", function(e){
+				Toggle(this)
+			});
+
+			PinButton.addEventListener("click", function(e){
 				Toggle(this)
 			});
 
@@ -70,7 +93,8 @@
 				Panic(PanicButton)
 			});
 			
-			Toggle(TogglePopup)
+			Toggle(TogglePopup, true)
+			Toggle(PinButton, false)
 
 			Warning.remove()
 
