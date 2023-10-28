@@ -101,7 +101,18 @@
 			var LastWasGrouped = true // genuinely so stupid, but i refuse to figure out how to do this properly!
 			function LoopThrough(Pages){
 				for (var Index of Object.keys(Pages)) {
-					if (!Pages[Index].title){if(!LastWasGrouped){Main.appendChild(document.createElement('br'))}; LoopThrough(Pages[Index]); Main.appendChild(document.createElement('br')); LastWasGrouped = false; continue}
+					if (!Pages[Index].title){
+						if(!LastWasGrouped){
+							Main.appendChild(document.createElement('br'))
+						};
+
+						LoopThrough(Pages[Index]);
+						Main.appendChild(document.createElement('br'));
+						
+						LastWasGrouped = true; 
+
+						continue
+					}
 
 					LastWasGrouped = false
 
