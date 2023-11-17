@@ -37,17 +37,27 @@
 			<input type="button" id="togglepopup" value="?" text="Open in popout window"></input>
 			<input type="button" id="panic" value="Panic - F4" onclick="Panic(this);"></input>
 			<input type="button" id="pin" value="?" text="Pin Mode"></input>
+			<a id="bookmarklet" href="javascript:alert('How did you bookmark this so fast, it hasnt even loaded yet!')">Ribosomic Bookmark Shortcut</a>
 
 			<br><hr>
 		</div>
 
 		<script>
+			var OSName = "?"
+
+			if (navigator.appVersion.indexOf("Win")!=-1) OSName = "Windows";
+			if (navigator.appVersion.indexOf("Mac")!=-1) OSName = "Mac";
+			if (navigator.appVersion.indexOf("X11")!=-1) OSName = "UNIX";
+			if (navigator.appVersion.indexOf("Linux")!=-1) OSName = "Linux";
+
 			const Main = document.getElementById("main")
 			const Warning = document.getElementById("warning")
 
 			const TogglePopup = document.getElementById("togglepopup")
 			const PanicButton = document.getElementById("panic")
 			const PinButton = document.getElementById("pin")
+
+			const Bookmarklet = document.getElementById("bookmarklet")
 			
 			const ON = '✔'
 			const OFF = '✖'
@@ -79,21 +89,24 @@
 				if (button == PinButton){PinMode()}
 			}
 
-			TogglePopup.addEventListener("click", function(e){
-				Toggle(this)
-			});
-
-			PinButton.addEventListener("click", function(e){
-				Toggle(this)
-			});
+			TogglePopup.addEventListener("click", function(e){Toggle(this)});
+			PinButton.addEventListener("click", function(e){Toggle(this)});
 
 			document.body.addEventListener("keydown", function(e){
 				if (e.key != 'F4'){return}
 
 				Panic(PanicButton)
 			});
+
+			Bookmarklet.href = 'javascript:(function()' + encodeURIComponent(`
+			fetch(${window.location.href}).then(function(response){return response.text();}).then(function(html){
+				const window = window.open('');
+
+				window.document.getElementsByTagName("html")[0].innerHTML = LoadPageHTML(Page);
+			})}
+			`) + ')'
 			
-			Toggle(TogglePopup, true)
+			Toggle(TogglePopup, (OSName == 'Mac'))
 			Toggle(PinButton, false)
 
 			Warning.remove()
