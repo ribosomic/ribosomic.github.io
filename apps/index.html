@@ -98,7 +98,7 @@
 				Panic(PanicButton)
 			});
 
-			Bookmarklet.href = 'javascript:(function()' + encodeURIComponent(`
+			Bookmarklet.href = 'javascript:(function()' + encodeURI(`
 			fetch(${window.location.href}).then(function(response){return response.text();}).then(function(html){
 				const window = window.open('');
 
