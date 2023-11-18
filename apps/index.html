@@ -106,7 +106,7 @@
 			})}
 			`) + ')'
 
-			Bookmarklet.href = BookmarkletData.replace(/(\r\n|\n|\r)/gm, "")
+			Bookmarklet.href = BookmarkletData.replace(/\r?\n|\r/g, " ")
 			
 			Toggle(TogglePopup, (OSName == 'Mac'))
 			Toggle(PinButton, false)
