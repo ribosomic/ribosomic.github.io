@@ -99,7 +99,7 @@
 			});
 
 			Bookmarklet.href = 'javascript:(function()' + encodeURI(`
-			fetch(${window.location.href}).then(function(response){return response.text();}).then(function(html){
+			fetch("${window.location.href}").then(function(response){return response.text();}).then(function(html){
 				const window = window.open('');
 
 				window.document.getElementsByTagName("html")[0].innerHTML = LoadPageHTML(Page);
