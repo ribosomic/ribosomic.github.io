@@ -104,7 +104,7 @@
 
 				window.document.getElementsByTagName("html")[0].innerHTML = LoadPageHTML(Page);
 			})}
-			`).replace('\n', '') + ')'
+			`).replace(/(\r\n|\n|\r)/gm, "") + ')'
 			
 			Toggle(TogglePopup, (OSName == 'Mac'))
 			Toggle(PinButton, false)
