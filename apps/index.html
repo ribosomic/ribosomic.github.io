@@ -98,13 +98,15 @@
 				Panic(PanicButton)
 			});
 
-			Bookmarklet.href = 'javascript:(function()' + encodeURI(`
+			const BookmarkletData = 'javascript:(function()' + encodeURI(`
 			fetch("${window.location.href}").then(function(response){return response.text();}).then(function(html){
 				const window = window.open('');
 
 				window.document.getElementsByTagName("html")[0].innerHTML = LoadPageHTML(Page);
 			})}
-			`).replace(/(\r\n|\n|\r)/gm, "") + ')'
+			`) + ')'
+
+			Bookmarklet.href = BookmarkletData.replace(/(\r\n|\n|\r)/gm, "")
 			
 			Toggle(TogglePopup, (OSName == 'Mac'))
 			Toggle(PinButton, false)
